@@ -4,12 +4,12 @@ const usersRoutes = require('./routes/usersRoutes')
 const nbooksRoutes = require('./routes/nbooksRoutes')
 
 //config puerto
-const PORT = 8001
+const PORT = process.env.PORT
 
 const cors = require('cors')
 
 app.listen(PORT,()=>{
-    console.log(`Server Runing on port ${PORT}`);
+    console.log(`Server Runing in port ${PORT}`);
 })
 
 //para poder mandar json en el body de la request
