@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 ///
 app.get('/',(req,res)=>{
-    res.send('Directorio Principal')
+    res.send('Directorio Principal pepito')
 });
 
 //routing hacia users
