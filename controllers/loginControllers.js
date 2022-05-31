@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const {register, login} = require('../models/login')
 
-const registerController = (req,res) =>{
+const registerController = async (req,res) =>{
     let {email,password} = req.body
     password = bcrypt.hashSync(password,10)
 

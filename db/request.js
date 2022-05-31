@@ -7,6 +7,7 @@ const request = (query)=>new Promise((res,rej)=>{
         user:process.env.DB_USER,
         password:process.env.DB_PASS,
         database:process.env.DB_DATABASE
+        
     })
     connection.query(query,(error,data,fields)=>{
         if(error) rej(error)
@@ -21,9 +22,10 @@ module.exports = {
     request
 }
 
-
 // host:'localhost',
 // port:8889,
 // user:'root',
 // password:'root',
 // database:'base_pfinal'
+
+
