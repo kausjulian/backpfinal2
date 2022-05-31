@@ -1,10 +1,12 @@
+//dotenv
+require("dotenv").config();
+
 const express = require('express')
 const app = express()
 const usersRoutes = require('./routes/usersRoutes')
 const nbooksRoutes = require('./routes/nbooksRoutes')
 const loginRouter = require('./routes/loginRoutes')
-//dotenv
-require("dotenv").config();
+
 
 //config puerto
 const PORT = process.env.PORT
