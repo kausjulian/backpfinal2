@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+require("dotenv").config();
 
 const request = (query)=>new Promise((res,rej)=>{
     const connection = mysql.createConnection({
