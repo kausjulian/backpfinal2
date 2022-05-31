@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const usersRoutes = require('./routes/usersRoutes')
 const nbooksRoutes = require('./routes/nbooksRoutes')
+const loginRouter = require('./routes/loginRoutes')
+//dotenv
+require("dotenv").config();
 
 //config puerto
 const PORT = process.env.PORT
@@ -24,5 +27,6 @@ app.get('/',(req,res)=>{
 app.use('/users',usersRoutes)
 //routing hacia notebooks
 app.use('/notebooks',nbooksRoutes)
+app.use('./login',loginRouter)
 
 
