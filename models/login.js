@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt')
 const{request} = require('../db/request')
 
-const register = async (email,password) =>{
+const register = async (name,lastname,email, password,status,type) =>{
     const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
     if(data.length >0){
         return 'El usuario ya existe'
     }else{
-        const user = await request(`INSERT INTO users (email, password, type VALUES('${email}','${password}','Cliente'))`)
+        const user = await request(`INSERT INTO users (name,lastname,email, password,status,type) VALUES('${name}','${lastname}','${email}','${password}',${status},'${type}')`)
         return {
         id:user.insertId,
         email

@@ -2,11 +2,11 @@ const bcrypt = require('bcrypt')
 const {register, login} = require('../models/login')
 
 const registerController = async (req,res) =>{
-    let {email,password} = req.body
+    let {name,lastname,email, password,status,type} = req.body
     password = bcrypt.hashSync(password,10)
 
     try {
-        const user = await register(email,password)
+        const user = await register(name,lastname,email, password,status,type)
         return res.status(201).send(user)
     } catch (error) {
         return res.status(500).send('Error en el registro')

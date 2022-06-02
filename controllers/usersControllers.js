@@ -10,9 +10,9 @@ const allUserscontroller = async(req,res)=>{
 }
 
 const createUserController = async(req,res)=>{
-    const{name,lastname,email,password,status} = req.body
+    const{name,lastname,email,password,status,type} = req.body
     try {
-        const user = await createUser(name,lastname,email,password,status)
+        const user = await createUser(name,lastname,email,password,status,type)
         return res.send(user)    
     } catch (err) {
         console.log(err)
