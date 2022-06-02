@@ -19,7 +19,7 @@ const loginController = async(req,res)=>{
         const user = await login(email,password)
         return res.status(201).send(user)
     } catch (error) {
-        return res.status(500).send('Error en el registro')
+        return res.status(500).send('Error en la autenticación')
     }
 
 

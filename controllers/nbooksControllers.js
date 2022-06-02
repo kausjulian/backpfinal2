@@ -10,9 +10,9 @@ const allNbooksController = async(req,res)=>{
 }
 
 const createNbookController = async(req,res)=>{
-    const {nombre,precio,stock,descripcion,imagen} = req.body
+    const {archivo, marca, modelo, precio, ano, descripcion, stock} = req.body
     try {
-        const nbook = await createNbook(nombre,precio,stock,descripcion,imagen)
+        const nbook = await createNbook(archivo, marca, modelo, precio, ano, descripcion, stock)
         return res.send(nbook)
     } catch (err) {
        return res.send('Se produjo un error')

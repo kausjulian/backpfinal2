@@ -3,10 +3,15 @@ const mysql = require('mysql')
 
 const request = (query)=>new Promise((res,rej)=>{
     const connection = mysql.createConnection({
-        host:process.env.DB_HOST,
-        user:process.env.DB_USER,
-        password:process.env.DB_PASS,
-        database:process.env.DB_DATABASE
+        // host:process.env.DB_HOST,
+        // user:process.env.DB_USER,
+        // password:process.env.DB_PASS,
+        // database:process.env.DB_DATABASE
+        host:'localhost',
+        port:8889,
+        user:'root',
+        password:'root',
+        database:'base_pfinal'
         
     })
     connection.query(query,(error,data,fields)=>{
@@ -22,10 +27,6 @@ module.exports = {
     request
 }
 
-// host:'localhost',
-// port:8889,
-// user:'root',
-// password:'root',
-// database:'base_pfinal'
+
 
 

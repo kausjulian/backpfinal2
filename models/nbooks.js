@@ -1,7 +1,7 @@
 const{request} = require('../db/request')
 
 const allNbooks = async()=>{
-    const data = await request('SELECT * FROM books')
+    const data = await request('SELECT * FROM nbooks')
 
     return{
         data
@@ -9,10 +9,10 @@ const allNbooks = async()=>{
 
 }
 
-const createNbook = async(nombre,precio,stock,descripcion,imagen)=>{
+const createNbook = async(archivo, marca, modelo, precio, ano, descripcion, stock)=>{
     const data = await request(`
-    INSERT INTO books (nombre,precio,stock,descripcion,imagen)
-    VALUES(${nombre},${precio},${stock},${descripcion},${imagen});`
+    INSERT INTO books (archivo, marca, modelo, precio, ano, descripcion, stock)
+    VALUES('${archivo}','${marca}','${modelo}',${precio},${ano},'${descripcion}',${stock});`
 )
 return{
    id:data.insertId,
