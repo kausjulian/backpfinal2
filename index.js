@@ -29,6 +29,6 @@ app.get('/',(req,res)=>{
 app.use('/users',usersRoutes)
 //routing hacia notebooks
 app.use('/notebooks',nbooksRoutes)
-app.use('./login',loginRouter)
+app.use('/login',loginRouter)
 
 
