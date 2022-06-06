@@ -17,7 +17,7 @@ const register = async (name,lastname,email, password,status,type) =>{
 }
 
 const login = async ( email,password )=> {
-    const data = await request(`SELECT * FROM users WHERE email = '${email}`)
+    const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
     if(data.length === 0 ){
         return 'Usuario no registrado'
     } else{
