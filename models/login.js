@@ -21,7 +21,10 @@ const login = async ( email,password )=> {
     if(data.length === 0 ){
         return 'Usuario no registrado'
     } else{
-        if(bcrypt.compareSync(password,data[0].password)) {
+        if(bcrypt.compare(data[0], password).then(function(result) {
+            result
+        })) {
+            // if(data[0].password===password){
             return data[0]
         }else{
             return 'Usuario o contraseña incorrecto'
