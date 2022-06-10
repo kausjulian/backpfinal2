@@ -10,18 +10,25 @@ const allNbooks = async()=>{
 }
 
 const createNbook = async(archivo, marca, modelo, precio, ano, descripcion, stock)=>{
-    const data = await request(`
-    INSERT INTO books (archivo, marca, modelo, precio, ano, descripcion, stock)
-    VALUES('${archivo}','${marca}','${modelo}',${precio},${ano},'${descripcion}',${stock});`
-)
+    const data = await request(`INSERT INTO nbooks (archivo, marca, modelo, precio, ano, descripcion, stock) VALUES ('${archivo}','${marca}','${modelo}',${precio},${ano},'${descripcion}',${stock})`)
 return{
    id:data.insertId,
-   nombre
+   archivo
 }
+}
+
+const deleteNbook = async(id)=>{
+    const data = await request(`DELETE FROM nbooks WHERE id = ${id}`)
+    return{
+        id,
+        deleted:data.affectedRows ? true: false
+    }
+
 }
 
 module.exports = {
     allNbooks,
-    createNbook
+    createNbook,
+    deleteNbook
 }
 
