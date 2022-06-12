@@ -18,16 +18,15 @@ const register = async (name,lastname,email, password,status,type) =>{
 
 const login = async ( email,password )=> {
     const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
+    const match = await bcrypt.compare(password, data[0].password);
 
     if(data.length === 0 ){
     return 'Usuario no registrado'
 } else{
-    if(bcrypt.compare(data[0].password, password).then(function(result) {
-        result
-    })) {
-        // if(data[0].password===password){
+    if(match){
         return data[0]
-    }else{
+    }
+    else{
         return 'Usuario o contraseña incorrecto'
     }
 }
