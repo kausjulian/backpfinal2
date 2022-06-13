@@ -3,7 +3,10 @@ const{request} = require('../db/request')
 const allNbooks = async()=>{
     const data = await request('SELECT * FROM nbooks')
 
-    return data
+    return{
+        data
+    }
+
 }
 
 const createNbook = async(archivo, marca, modelo, precio, ano, descripcion, stock)=>{
