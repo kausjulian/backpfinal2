@@ -4,6 +4,7 @@ const allNbooks = async()=>{
     const data = await request('SELECT * FROM nbooks')
 
     return data
+}
 
 const createNbook = async(archivo, marca, modelo, precio, ano, descripcion, stock)=>{
     const data = await request(`INSERT INTO nbooks (archivo, marca, modelo, precio, ano, descripcion, stock) VALUES ('${archivo}','${marca}','${modelo}',${precio},${ano},'${descripcion}',${stock})`)
