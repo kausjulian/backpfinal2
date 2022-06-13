@@ -15,6 +15,7 @@ const registerController = async (req,res) =>{
 
 const loginController = async(req,res)=>{
     let{email,password} = req.body
+    console.log(password)
     try {
         const user = await login(email,password)
         return res.status(201).send(user)
