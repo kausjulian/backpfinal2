@@ -1,3 +1,4 @@
+const fs = require('fs')
 const {allNbooks,createNbook, deleteNbook} = require('../models/nbooks')
 
 const allNbooksController = async(req,res)=>{
@@ -10,8 +11,12 @@ const allNbooksController = async(req,res)=>{
 }
 
 const createNbookController = async(req,res)=>{
-    const {archivo, marca, modelo, precio, ano, descripcion, stock} = req.body
-    // console.log(archivo, marca, modelo, precio, ano, descripcion, stock)
+    const {nomarchivo,marca, modelo, precio, ano, descripcion, stock} = req.body
+    const ext = req.file.mimetype.split('/',2)[1];
+    const archivo = `${nomarchivo}.${ext}`
+    ///en esta linea de abajo no entendi bien lo que hago, tampoco como funca el split
+    fs.renameSync(req.file.path,`imagenes/${archivo}`)
+
     try {
         const nbook = await createNbook(archivo, marca, modelo, precio, ano, descripcion, stock)
         return res.send(nbook)
@@ -32,9 +37,9 @@ const deleteNbookController = async(req,res)=>{
         console.log(err)
         return res.send('Se produjo un error')
     }
-
-
 }
+
+
 
 module.exports = {
     allNbooksController,

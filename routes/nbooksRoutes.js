@@ -6,8 +6,14 @@ const{allNbooksController,createNbookController,deleteNbookController} = require
 
 router.get('/',allNbooksController)
 
-router.post('/',createNbookController)
+// router.post('/',createNbookController)
 
 router.delete('/:id',deleteNbookController)
+
+//multer
+const multer = require('multer')
+const upload = multer({dest:'imagenes/'})
+
+router.post('/',upload.single,createNbookController)
 
 module.exports = router

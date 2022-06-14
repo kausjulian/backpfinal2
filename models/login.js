@@ -32,9 +32,6 @@ const login = async ( email,password )=> {
         return 'Usuario o contraseña incorrecto'
     }
 }
-
-
-
 }
 
 

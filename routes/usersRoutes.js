@@ -9,5 +9,7 @@ router.get('/',allUserscontroller)
 //create user
 router.post('/',createUserController)
 
+
+
 module.exports = router
 
