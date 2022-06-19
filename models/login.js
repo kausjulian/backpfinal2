@@ -17,24 +17,27 @@ const register = async (name,lastname,email, password,status,type) =>{
 }
 
 const login = async ( email,password )=> {
-    const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
-    
+ 
+    console.log(password)
+    const match = await bcrypt.compare(password, data[0].password);
+    console.log(match)
+
     if(data.length === 0 ){
-        return 'Usuario no registrado'
-    } 
-    if(bcrypt.compareSync(password, data[0].password)){
-        console.log('entra compare')
+        return {
+            msg:'Usuario no registrado',
+            error:true
+        }} 
+    else{
+    if(match){
         return data[0]
     }
     else{
-        console.log('entra else')
-    return {
+        return {
             msg:'Usuario o contraseña incorrecto',
             error:true
         }
     }
-            
-    
+}
 }
 
 
@@ -58,29 +61,25 @@ module.exports = {
 //     }
 // }
 
-
-
-
-
-
-
-//     console.log(password)
-//     const match = await bcrypt.compare(password, data[0].password);
-//     console.log(match)
-
-//     if(data.length === 0 ){
-//         return {
-//             msg:'Usuario no registrado',
-//             error:true
-//         }} 
-//     else{
-//     if(match){
-//         return data[0]
-//     }
-//     else{
-//         return {
-//             msg:'Usuario o contraseña incorrecto',
-//             error:true
-//         }
+// const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
+// console.log(data[0].password)
+// if(data.length === 0 ){
+//     return 'Usuario no registrado'
+// } 
+// if(bcrypt.compareSync(password, data[0].password)){
+//     console.log('entra compare')
+//     return data[0]
+// }
+// else{
+//     console.log('entra else')
+// return {
+//         msg:'Usuario o contraseña incorrecto',
+//         error:true
 //     }
 // }
+        
+
+
+
+
+

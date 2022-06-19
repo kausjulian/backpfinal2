@@ -14,6 +14,6 @@ router.delete('/:id',deleteNbookController)
 const multer = require('multer')
 const upload = multer({dest:'imagenes/'})
 
-router.post('/',upload.single('image'),createNbookController)
+router.post('/',upload.single('nomarchivo'),createNbookController)
 
 module.exports = router
