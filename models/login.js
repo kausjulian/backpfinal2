@@ -17,7 +17,7 @@ const register = async (name,lastname,email, password,status,type) =>{
 }
 
 const login = async ( email,password )=> {
- 
+    const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
     console.log(password)
     const match = await bcrypt.compare(password, data[0].password);
     console.log(match)
