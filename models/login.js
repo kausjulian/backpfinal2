@@ -18,10 +18,10 @@ const register = async (name,lastname,email, password,status,type) =>{
 
 const login = async ( email,password )=> {
     const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
-    console.log(password)
+    // console.log(password)
     const match = await bcrypt.compare(password, data[0].password);
-    console.log(match)
-
+    // console.log(match)
+    
     if(data.length === 0 ){
         return {
             msg:'Usuario no registrado',
@@ -37,8 +37,10 @@ const login = async ( email,password )=> {
             error:true
         }
     }
-}
-}
+    }
+    }
+ 
+    
 
 
 
@@ -79,6 +81,30 @@ module.exports = {
 // }
         
 
+
+
+// const data = await request(`SELECT * FROM users WHERE email = '${email}'`)
+// // console.log(password)
+// // const match = await bcrypt.compare(password, data[0].password);
+// // console.log(match)
+
+// if(data.length === 0 ){
+//     return {
+//         msg:'Usuario no registrado',
+//         error:true
+//     }} 
+// else{
+// if(data[0].password===password){
+//     return data[0]
+// }
+// else{
+//     return {
+//         msg:'Usuario o contraseña incorrecto',
+//         error:true
+//     }
+// }
+// }
+// }
 
 
 
