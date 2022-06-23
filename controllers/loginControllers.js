@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const {register, login} = require('../models/login')
 
 const registerController = async (req,res) =>{

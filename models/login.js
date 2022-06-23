@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const{request} = require('../db/request')
 
 const register = async (name,lastname,email, password,status,type) =>{
