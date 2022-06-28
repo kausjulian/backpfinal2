@@ -18,8 +18,7 @@ const loginController = async(req,res)=>{
     console.log(password)
     try {
         const user = await login(email,password)
-        res.cookie('session',user)
-        return res.status(201).send(user)
+        return res.status(201).send(user).cookie('session',user)
     } catch (error) {
         return res.status(500).send('Error en la autenticación')
     }
