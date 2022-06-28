@@ -8,6 +8,7 @@ const usersRoutes = require('./routes/usersRoutes')
 const nbooksRoutes = require('./routes/nbooksRoutes')
 const loginRouter = require('./routes/loginRoutes')
 const multer = require('multer');
+const cookieParser = require("cookie-parser");
 
 
 //config puerto
@@ -30,7 +31,8 @@ app.use('/users',usersRoutes)
 //routing hacia notebooks
 app.use('/notebooks',nbooksRoutes)
 app.use('/login',loginRouter)
-//config multer
-// app.use(multer({dest:'./imagenes/'}));
+//
+//cookie parser//
+app.use(cookieParser())
 
 
