@@ -11,7 +11,8 @@ const allNbooksController = async(req,res)=>{
 }
 
 const createNbookController = async(req,res)=>{
-    const {nomarchivo,marca, modelo, precio, ano, descripcion, stock} = req.body
+    const {marca, modelo, precio, ano, descripcion, stock} = req.body
+    const {nomarchivo} = req.file
     const ext = req.file.mimetype.split('/',2)[1];
     const archivo = `${nomarchivo}.${ext}`
     ///en esta linea de abajo no entendi bien lo que hago, tampoco como funca el split
