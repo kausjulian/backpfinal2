@@ -11,18 +11,17 @@ const allNbooksController = async(req,res)=>{
 }
 
 const createNbookController = async(req,res)=>{
-    const {marca, modelo, precio, ano, descripcion, stock} = req.body
-    const {nomarchivo} = req.file
-    const ext = req.file.mimetype.split('/',2)[1];
-    const archivo = `${nomarchivo}.${ext}`
+    const {nomarchivo,marca, modelo, precio, ano, descripcion, stock} = req.body
+    // const ext = req.file.mimetype.split('/',2)[1];
+    // const archivo = `${nomarchivo}.${ext}`
     ///en esta linea de abajo no entendi bien lo que hago, tampoco como funca el split
-    fs.renameSync(req.file.path,`imagenes/${archivo}`)
-    console.log(req.file)
+    // fs.renameSync(req.file.path,`imagenes/${archivo}`)
+    // console.log(req.file)
 
 
 
     try {
-        const nbook = await createNbook(archivo, marca, modelo, precio, ano, descripcion, stock)
+        const nbook = await createNbook(nomarchivo, marca, modelo, precio, ano, descripcion, stock)
         return res.send(nbook)
     } catch (err) {
         console.log(err)
