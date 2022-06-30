@@ -55,7 +55,7 @@ app.post('/sendmail',(req,res)=>{
         from:'billy.bauch52@ethereal.email',
         to:`${data.email}`,
         subject:'Confirmación de compra Tech Center',
-        html:`<h1 class="text-center" style="color: rgb(30, 144, 252)">Tech Center</h1><h2> Gracias por tu compra en Tech Center! En breve nos pondremos en contacto con vos para indicarte los pasos a seguir.</h2><h3>Tu Compra: ${data.favs}<b>Total: $${data.total}</b></h3>`
+        html:'<h1 class="text-center" style="color: rgb(30, 144, 252)">Tech Center</h1><p> Gracias por tu compra en Tech Center! En breve nos pondremos en contacto con vos para indicarte los pasos a seguir</p>'
     }
     
     transporter.sendMail(mailOptions,function(error,info){
