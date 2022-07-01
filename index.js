@@ -37,7 +37,7 @@ app.use('/login',loginRouter)
 app.use(cookieParser())
 //nodemailer
 app.post('/sendmail',(req,res)=>{
-    const{data} = req.body
+    const{email,favs,total} = req.body
     
     
     let transporter = nodemailer.createTransport({
@@ -53,9 +53,9 @@ app.post('/sendmail',(req,res)=>{
     
     let mailOptions = {
         from:'billy.bauch52@ethereal.email',
-        to:`${data.email}`,
+        to:`${email}`,
         subject:'Confirmación de compra Tech Center',
-        html:'<h1 class="text-center" style="color: rgb(30, 144, 252)">Tech Center</h1><p> Gracias por tu compra en Tech Center! En breve nos pondremos en contacto con vos para indicarte los pasos a seguir.</p>'
+        html:`<h1 class="text-center" style="color: rgb(30, 144, 252)">Tech Center</h1><h5> Gracias por tu compra en Tech Center! En breve nos pondremos en contacto con vos para indicarte los pasos a seguir.</h5>`
     }
     
     transporter.sendMail(mailOptions,function(error,info){
