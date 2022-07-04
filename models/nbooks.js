@@ -13,7 +13,8 @@ const createNbook = async(archivo, marca, modelo, precio, ano, descripcion, stoc
     const data = await request(`INSERT INTO nbooks (archivo, marca, modelo, precio, ano, descripcion, stock) VALUES ('${archivo}','${marca}','${modelo}',${precio},${ano},'${descripcion}',${stock})`)
 return{
    id:data.insertId,
-   archivo
+   archivo,
+   message:'Producto agregado con éxito'
 }
 }
 
